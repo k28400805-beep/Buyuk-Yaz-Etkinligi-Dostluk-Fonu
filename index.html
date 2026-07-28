@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büyük Yaz Etkinliği & Dostluk Fonu</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-green: #10b981;
+            --accent-gold: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Hero Banner Görselli Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            border: 1px solid var(--accent-green);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        header p {
+            color: var(--accent-green);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin: 35px 0 15px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 10px;
+        }
+
+        /* Başkan ve Yönetim Grid */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .committee-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .committee-role {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .committee-name {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* İstatistik Kartları */
+        .grid-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .number {
+            color: var(--accent-green);
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* Kartlar ve Görsel Alanları */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .badge {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .item-list li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Kapak Görselli Ana Başlık -->
+        <header>
+            <h1>BÜYÜK YAZ ETKİNLİĞİ & DOSTLUK FONU</h1>
+            <p>Şeffaf Bütçe • Ortak Kararlar • Unutulmaz Bir Gün</p>
+        </header>
+
+        <!-- Organizasyon Başkanı & Komitesi -->
+        <h2 class="section-title">Organizasyon Sorumluları</h2>
+        <div class="committee-grid">
+            <div class="committee-card">
+                <span class="committee-role">Organizasyon Başkanı</span>
+                <div class="committee-name">[Kürşat Erdoğan]</div>
+            </div>
+            <div class="committee-card">
+                <span class="committee-role">Fon & Bütçe Sorumlusu</span>
+                <div class="committee-name">Yunus Emre Acar</div>
+            </div>
+            <div class="committee-card">
+                <span class="committee-role">Saha & Malzeme Sorumlusu</span>
+                <div class="committee-name">[Burak Mert]</div>
+            </div>
+        </div>
+
+        <!-- Özet Durum -->
+        <div class="grid-stats">
+            <div class="stat-card">
+                <h4>Hedef Bütçe</h4>
+                <div class="number">1.000 TL</div>
+            </div>
+            <div class="stat-card">
+                <h4>Toplanan Fon</h4>
+                <div class="number">000 TL</div>
+            </div>
+            <div class="stat-card">
+                <h4>Katılımcı Sayısı</h4>
+                <div class="number">7 Kişi</div>
+            </div>
+        </div>
+
+        <!-- Şeffaf Katılımcı Listesi -->
+        <h2 class="section-title">Katılımcı Kadrosu & Katkılar</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Katılımcı</th>
+                        <th>Durum</th>
+                        <th>Katkı Miktarı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[Kürşat]</td>
+                        <td><span class="badge">Onaylandı</span></td>
+                        <td>100 TL</td>
+                    </tr>
+                    <tr>
+                        <td>Yunus</td>
+                        <td><span class="badge">Onaylandı</span></td>
+                        <td>80 TL</td>
+                    </tr>
+                    <tr>
+                        <td>[...]</td>
+                        <td><span class="badge">Onaylandı</span></td>
+                        <td>Beklemede</td>
+                    </tr>
+                    <tr>
+                        <td>[...]</td>
+                        <td>Beklemede</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Etkinlik Planı ve Görsel -->
+        <h2 class="section-title">Etkinlik Planı & Malzeme Listesi</h2>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80" alt="Doğa Görseli" class="card-img">
+            <ul class="item-list">
+                <li>
+                    <span>Yiyecek & İçecek Tedariği</span>
+                    <strong>Ortak Fon</strong>
+                </li>
+                <li>
+                    <span>Aktivite Ekipmanları (Top, Oyunlar)</span>
+                    <strong>Ortak Bütçe</strong>
+                </li>
+                <li>
+                    <span>Oturma Alanı & Konfor Düzenlemesi</span>
+                    <strong>Ekip Getirecek</strong>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Karar Kurulu -->
+        <h2 class="section-title">Organizasyon Kararları</h2>
+        <div class="card">
+            <p><strong>Lokasyon Seçimi:</strong> Katılımcılar arasında yapılacak oylama ile belirlenecektir.</p>
+            <br>
+            <p><strong>Tarih & Saat:</strong> Bütçe hedefi tamamlandığında ortak takvime göre ilan edilecektir.</p>
+        </div>
+
+        <footer>
+            <p>Resmi Etkinlik & Dostluk Portalı &copy; 2026</p>
+        </footer>
+    </div>
+
+</body>
+</html>
