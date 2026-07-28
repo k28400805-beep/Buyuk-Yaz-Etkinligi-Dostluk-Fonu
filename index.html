@@ -5,28 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Büyük Yaz Etkinliği & Dostluk Fonu</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(21, 30, 49, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
             --accent-green: #10b981;
+            --accent-green-glow: rgba(16, 185, 129, 0.25);
             --accent-gold: #f59e0b;
+            --accent-gold-glow: rgba(245, 158, 11, 0.2);
+            --accent-purple: #8b5cf6;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: #334155;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
-            padding: 20px;
+            padding: 24px 16px;
         }
 
         .container {
@@ -34,116 +44,149 @@
             margin: 0 auto;
         }
 
-        /* Hero Banner Görselli Header */
+        /* Hero Banner */
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), 
+            padding: 70px 24px;
+            background: linear-gradient(180deg, rgba(11, 15, 25, 0.6) 0%, rgba(11, 15, 25, 0.95) 100%), 
                         url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            border: 1px solid var(--accent-green);
-            border-radius: 16px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid var(--accent-green-glow);
+            border-radius: 24px;
+            margin-bottom: 36px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         header h1 {
             color: #ffffff;
-            font-size: 2.4rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
         }
 
         header p {
             color: var(--accent-green);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .section-title {
             color: var(--accent-gold);
-            font-size: 1.4rem;
-            margin: 35px 0 15px;
-            border-left: 4px solid var(--accent-gold);
-            padding-left: 10px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 40px 0 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Başkan ve Yönetim Grid */
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--accent-gold);
+            border-radius: 4px;
+        }
+
+        /* Sorumlular Grid */
         .committee-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
         }
 
         .committee-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 20px;
             text-align: center;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .committee-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
 
         .committee-role {
             color: var(--accent-gold);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
+            letter-spacing: 1.2px;
+            font-weight: 700;
         }
 
         .committee-name {
             color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 5px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 6px;
         }
 
         /* İstatistik Kartları */
         .grid-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 16px;
+            margin-bottom: 28px;
         }
 
         .stat-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 22px;
             text-align: center;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-green-glow);
+            box-shadow: 0 12px 24px rgba(16, 185, 129, 0.15);
         }
 
         .stat-card h4 {
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
         }
 
         .stat-card .number {
             color: var(--accent-green);
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2rem;
+            font-weight: 800;
         }
 
-        /* Kartlar ve Görsel Alanları */
+        /* Kart ve Tablo Alanları */
         .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         .card-img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            border: 1px solid var(--card-border);
         }
 
         table {
@@ -153,22 +196,31 @@
 
         th, td {
             text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 14px;
+            border-bottom: 1px solid var(--card-border);
         }
 
         th {
             color: var(--accent-gold);
-            font-weight: 600;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            font-size: 0.98rem;
         }
 
         .badge {
-            background-color: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
             color: var(--accent-green);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            display: inline-block;
         }
 
         .item-list {
@@ -176,23 +228,85 @@
         }
 
         .item-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .item-list li:last-child {
             border-bottom: none;
         }
 
+        /* Haberler Bölümü */
+        .news-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .news-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
+        }
+
+        .news-date {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .news-card h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* Royal Finans Gönderme Kartı */
+        .legacy-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
+        }
+
+        .legacy-card h3 {
+            color: #c084fc;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legacy-card p {
+            color: #e2e8f0;
+            font-size: 0.92rem;
+        }
+
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 32px 0;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
+            font-size: 0.88rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 48px;
         }
     </style>
 </head>
@@ -205,7 +319,7 @@
             <p>Şeffaf Bütçe • Ortak Kararlar • Unutulmaz Bir Gün</p>
         </header>
 
-        <!-- Organizasyon Başkanı & Komitesi -->
+        <!-- Organizasyon Sorumluları -->
         <h2 class="section-title">Organizasyon Sorumluları</h2>
         <div class="committee-grid">
             <div class="committee-card">
@@ -238,7 +352,22 @@
             </div>
         </div>
 
-        <!-- Şeffaf Katılımcı Listesi -->
+        <!-- Haberler & Duyurular Akışı -->
+        <h2 class="section-title">Haberler & Güncel Duyurular</h2>
+        <div class="card">
+            <div class="news-card">
+                <span class="news-date">28 Temmuz 2026</span>
+                <h3>Yeni Etkinlik Portalı Resmi Olarak Yayında!</h3>
+                <p>Grup içi şeffaf bütçe yönetimi ve organizasyon takibini yapacağımız yeni web sitemiz yayına alınmıştır. Tüm katılımcılar durumlarını buradan anlık takip edebilir.</p>
+            </div>
+            <div class="news-card">
+                <span class="news-date">Duyuru</span>
+                <h3>Saha & Malzeme Listesi Güncellendi</h3>
+                <p>Etkinlik alanında ihtiyaç duyulacak oturma grupları, toplar ve mangal ekipmanları için ortak paylaşım listesi oluşturulmuştur.</p>
+            </div>
+        </div>
+
+        <!-- Katılımcı Listesi -->
         <h2 class="section-title">Katılımcı Kadrosu & Katkılar</h2>
         <div class="card">
             <table>
@@ -251,19 +380,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>[Kürşat]</td>
+                        <td>[Kürşat Erdoğan]</td>
                         <td><span class="badge">Onaylandı</span></td>
                         <td>100 TL</td>
                     </tr>
                     <tr>
-                        <td>Yunus</td>
+                        <td>Yunus Emre Acar</td>
                         <td><span class="badge">Onaylandı</span></td>
                         <td>80 TL</td>
                     </tr>
                     <tr>
                         <td>[...]</td>
                         <td><span class="badge">Onaylandı</span></td>
-                        <td>Beklemede</td>
+                        <td>beklemede</td>
                     </tr>
                     <tr>
                         <td>[...]</td>
@@ -294,12 +423,10 @@
             </ul>
         </div>
 
-        <!-- Karar Kurulu -->
-        <h2 class="section-title">Organizasyon Kararları</h2>
-        <div class="card">
-            <p><strong>Lokasyon Seçimi:</strong> Katılımcılar arasında yapılacak oylama ile belirlenecektir.</p>
-            <br>
-            <p><strong>Tarih & Saat:</strong> Bütçe hedefi tamamlandığında ortak takvime göre ilan edilecektir.</p>
+        <!-- Royal Finans Mirası Göndermesi -->
+        <div class="legacy-card">
+            <h3>🏛️ Royal Finans Mirası & Teşekkür</h3>
+            <p>Geçmişte kurduğumuz ve unutulmaz anılar biriktirdiğimiz <strong>Royal Finans A.Ş.</strong> projelerinden edindiğimiz yönetim tecrübesiyle, şimdi bu dostluk fonunu çok daha şeffaf ve eğlenceli bir etkinliğe dönüştürüyoruz. Eski yönetim kurulumuza ve emeği geçen herkese teşekkürler!</p>
         </div>
 
         <footer>
