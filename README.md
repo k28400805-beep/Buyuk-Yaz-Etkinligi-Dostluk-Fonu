@@ -1,0 +1,1 @@
+# Buyuk-Yaz-Etkinligi-Dostluk-Fonu
